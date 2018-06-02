@@ -1,0 +1,83 @@
+*{font-family: 'Roboto', sans-serif;}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-top: 0px;
+}
+nav{	transition: all 0.5s;}
+.bg-grey {
+    background-color: #FAFAFA;
+    border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE;
+}
+.navbar-bg-dark{
+	background-color: #5a4c4c !important;
+	padding: 0 !important;
+}
+.paralax-wrapper{
+	height: 100%;
+	position: relative;
+}
+.paralax{
+	height: 100vh;
+	background-image: url(../img/soil.jpg);
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.overlay{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.5); 
+}
+.content-header{
+	position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}
+.content-header h1{text-transform: uppercase;}
+
+.btn-circle{
+	border-radius: 100%;
+}
+.content-container{
+	padding-top: 120px;
+	padding-bottom: 120px;
+}
+.header-section{
+	position: relative;
+	margin-bottom: 50px;
+	width: 100%;
+}
+.header-section:after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 40px;
+    background-color: #ffaa61;
+    margin: 10px auto;
+}
+.content-container p{color: rgba(0,0,0,0.5);text-align: left}
+.box-todo .fa{
+	font-size: 36px;
+	border-radius: 100%;
+	color: #fff;
+	background-color: #ffaa61;
+	padding: 20px;
+	margin-bottom: 26px;
+}
+.color-grey{color: rgba(0,0,0,0.5); }
+.box-ctn{border:1px solid rgba(0,0,0,0.1);}
+.content-container .card{
+	padding: 0px;
+}
