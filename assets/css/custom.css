@@ -10,9 +10,13 @@ nav{	transition: all 0.5s;}
     border-top: 1px solid #EEE;
     border-bottom: 1px solid #EEE;
 }
+.color-yellow{
+	color: #ffaa61;
+}
 .navbar-bg-dark{
 	background-color: #5a4c4c !important;
-	padding: 0 !important;
+	padding-top: 10px !important;
+	padding-bottom:  5px !important;
 }
 .paralax-wrapper{
 	height: 100%;
@@ -80,4 +84,13 @@ nav{	transition: all 0.5s;}
 .box-ctn{border:1px solid rgba(0,0,0,0.1);}
 .content-container .card{
 	padding: 0px;
+}
+.postedby>.fa{ margin-left: 8px;margin-right: 8px }
+.postedby>.fa:not(:first-child){margin-left: 12px}
+@media only screen and (max-width: 575px) {
+    .navbar-dark{
+		background-color: #5a4c4c !important;
+		padding-top: 10px !important;
+		padding-bottom:  5px !important;
+	}
 }
