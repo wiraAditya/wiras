@@ -133,6 +133,11 @@
             <i class="fa fa-tree"></i> <span>Data Tanah</span>
           </a>
         </li>
+        <li>
+          <a href="<?=$baseUrl."/test/"?>">
+            <i class="fa fa-tree"></i> <span>test</span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
