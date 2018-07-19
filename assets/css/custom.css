@@ -1,10 +1,15 @@
 *{
-	color:#fff;
+	
 	font-family: 'Lato';
-	font-size: 20px;
+	
 }
 .bg-blue{
 	background-color: #284c66;
+	color:#fff;
+	font-size: 20px;
+}
+.bg-grey{
+	background-color: #eaeaec;
 }
 .full-height{height: 100vh}
 .title{    
@@ -25,7 +30,6 @@
 }
 .button-front:first-of-type{
 	margin-right: 50px;
-
 }
 .text-green{color:#75b57f !important;}
 .img-content{
@@ -34,7 +38,31 @@
   transform: translateY(-50%);
 }
 
-
+/* blog */
+.carousel,.img-carousel{max-height: 500px}
+.carousel-caption{	
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+.textCapt {
+    font-family: 'Roboto Slab';
+    max-width: 70%;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.btn-white-bordered{
+	border-color: #fff;
+	color:#fff;
+}
+.textCapt>h1{
+    font-weight: bold;
+}
 @media only screen and (max-width: 991px) {
     .img-content{
 		max-width: 250px !important;
@@ -46,11 +74,11 @@
 }
 @media only screen and (max-width: 540px) {
    .title{font-size: 45px}
-   *{font-size: 16px}
+   .bg-blue{font-size: 16px}
 }
 @media only screen and (max-width: 410px) {
    .title{font-size: 30px}
-   *{font-size: 14px}
+   .bg-blue{font-size: 14px}
    .button-front:first-of-type{
 		margin-right: 0px;
 	}
