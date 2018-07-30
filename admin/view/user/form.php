@@ -27,26 +27,26 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama</label>
-                  <input type="text" class="form-control" name="nama" value="<?=(isset($data->nama))?$data->nama:""?>">
+                  <input required type="text" class="form-control" name="nama" value="<?=(isset($data->nama))?$data->nama:""?>">
                 </div>
                 <!-- <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" name="">
+                  <input required type="email" class="form-control" id="exampleInputEmail1" name="">
                 </div> -->
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Telp</label>
-                  <input type="text" class="form-control" name="telp" value="<?=(isset($data->telp))?$data->telp:""?>">
+                  <input required type="text" class="form-control" name="telp" value="<?=(isset($data->telp))?$data->telp:""?>">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Username</label>
-                  <input type="text" class="form-control" name="username" value="<?=(isset($data->username))?$data->username:""?>">
+                  <input required type="text" class="form-control" name="username" value="<?=(isset($data->username))?$data->username:""?>">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Password</label>
-                  <input type="password" class="form-control" name="password" value="<?=(isset($data->password))?$data->password:""?>">
+                  <input <?php echo !(isset($data))?"required":"" ?> type="password" class="form-control" name="password" >
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Alamat</label>

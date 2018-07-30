@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2018 at 02:35 AM
+-- Generation Time: Jul 30, 2018 at 03:23 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.0.30
 
@@ -839,7 +839,7 @@ CREATE TABLE `user` (
   `telp` varchar(15) NOT NULL,
   `username` varchar(12) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` tinyint(4) NOT NULL,
+  `role` tinyint(4) NOT NULL COMMENT '1.superadmin 2admin',
   `aktif` enum('1','0') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -848,8 +848,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`idUser`, `nama`, `alamat`, `telp`, `username`, `password`, `role`, `aktif`) VALUES
-(1, 'admin', 'admin', '082', 'admin', 'admin', 1, '1'),
-(2, 'wira', 'lkn\r\n', 'wira', 'wira', 'wira', 2, '1');
+(1, 'admin utama', 'admin', '082', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '1'),
+(2, 'wira', 'lkn\r\n', 'wira', 'wiras', '6215f4770ee800ad5402bc02be783c26', 2, '0'),
+(5, 'wiraaditya', 'wria', 'wira', 'wiraadityya', 'wria', 2, '1');
 
 --
 -- Indexes for dumped tables
@@ -965,7 +966,7 @@ ALTER TABLE `suhu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

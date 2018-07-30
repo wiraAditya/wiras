@@ -68,7 +68,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../assets/img/icon.png" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs"><?php echo $_SESSION['nama'] ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -76,18 +76,23 @@
                 <img src="../assets/img/icon.png" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  <?php echo $_SESSION['nama'] ?>
+                  <small>
+                  <strong>
+                    <?php echo $_SESSION['role']==1?"Super Admin":"" ?>
+                  </strong>
+
+                  </small>
                 </p>
               </li>
               <!-- Menu Body -->
               <li class="user-body">
                 <div class="row">
                   <div class="col-xs-6 text-center">
-                    <a class="btn btn-danger " style="color: #fff !important" href="#">Logout</a>
+                    <a class="btn btn-danger " style="color: #fff !important" href="api/login/logout.php">Logout</a>
                   </div>
                   <div class="col-xs-6 text-center">
-                    <a class="btn btn-primary " style="color: #fff !important" href="#">Profile</a>
+                    <a class="btn btn-primary " style="color: #fff !important" href="<?php echo $baseUrl."/user/editProfile?idUser=".$_SESSION['id'] ?>">Profile</a>
                   </div>
                 </div>
                 <!-- /.row -->
@@ -113,32 +118,42 @@
           <img src="../assets/img/icon.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><strong><?php echo $_SESSION['role'] == 1?"Super Admin":"Admin" ?></strong></p>
+          <p><?php echo $_SESSION['nama'] ?></p>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li>
-          <a href="<?=$baseUrl."/user/"?>">
-            <i class="fa fa-user"></i> <span>Data User</span>
-          </a>
-        </li>
-        <li>
-          <a href="<?=$baseUrl."/blog/"?>">
-            <i class="fa fa-edit"></i> <span>Data Blog</span>
-          </a>
-        </li>
-        <li>
-          <a href="<?=$baseUrl."/tanaman/"?>">
-            <i class="fa fa-tree"></i> <span>Data Tanaman</span>
-          </a>
-        </li>
-        <li>
-          <a href="<?=$baseUrl."/analisa/"?>">
-            <i class="fa fa-dashboard"></i> <span>Data Analisa</span>
-          </a>
-        </li>
+        <?php if ($_SESSION['role']==1): ?>
+          <li>
+            <a href="<?=$baseUrl."/user/"?>">
+              <i class="fa fa-user"></i> <span>Data User</span>
+            </a>
+          </li>
+          <li>
+            <a href="<?=$baseUrl."/blog/"?>">
+              <i class="fa fa-edit"></i> <span>Data Blog</span>
+            </a>
+          </li>
+          <li>
+            <a href="<?=$baseUrl."/tanaman/"?>">
+              <i class="fa fa-tree"></i> <span>Data Tanaman</span>
+            </a>
+          </li>
+          <li>
+            <a href="<?=$baseUrl."/analisa/"?>">
+              <i class="fa fa-dashboard"></i> <span>Data Analisa</span>
+            </a>
+          </li>
+          
+        <?php else: ?>
+          <li>
+            <a href="<?=$baseUrl."/blog/"?>">
+              <i class="fa fa-edit"></i> <span>Data Blog</span>
+            </a>
+          </li>
+        <?php endif ?>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -39,6 +39,11 @@
               <input type="text" class="form-control disabled" disabled name="telp" value="<?=(isset($data->telp))?$data->telp:""?>">
             </div>
             <div class="form-group">
+              <label for="exampleInputEmail1">Role</label>
+              <input type="text" class="form-control disabled" disabled name="telp" value="<?=$data->role==1?'Super Admin':'Admin'?>">
+              
+            </div>
+            <div class="form-group">
               <label for="exampleInputEmail1">Alamat</label>
               <textarea name="alamat" id="" cols="30" rows="10" class="form-control disabled" disabled><?=(isset($data->alamat))?$data->alamat:""?></textarea>
             </div>

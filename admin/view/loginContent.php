@@ -30,7 +30,13 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-
+    <?php if (isset($_SESSION['flash'])): ?>
+      <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-ban"></i>Kesalahan</h4>
+        <?php echo $_SESSION['flash'] ?>
+      </div>
+    <?php endif ?>
     <form action="api/login/login.php" method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" name="un" placeholder="Username">
@@ -42,7 +48,7 @@
       </div>
       <div class="row">
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" name="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
         <!-- /.col -->
       </div>

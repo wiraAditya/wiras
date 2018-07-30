@@ -18,6 +18,13 @@
       <h3 class="box-title">Data User</h3>
     </div>
     <div class="box-body">
+      <?php if (isset($_SESSION['flash'])): ?>
+         <div class="alert alert-danger alert-dismissible">
+           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+           <h4><i class="icon fa fa-ban"></i>Kesalahan</h4>
+           <?php echo $_SESSION['flash']?>
+         </div>
+       <?php endif ?>
       <a href="<?=$baseUrl.'/user/form'?>" class="btn btn-success">Tambah</a>
       <div class="table-responsive" style="margin: 20px 0">
         <table id="table-datatable" class="table table-stripped">
@@ -28,6 +35,7 @@
                 <th>Username</th>
                 <th>Telp</th>
                 <th>Alamat</th>
+                <th>Status</th>
               </tr>
           </thead>
           <tbody>
@@ -38,6 +46,7 @@
                   <td><?=$value->username?></td>
                   <td><?=$value->telp?></td>
                   <td><?=$value->alamat?></td>
+                  <td><span class="btn-xs <?=$value->aktif==1?"btn-success":"btn-danger"?>"><?=$value->aktif==1?"Aktif":"dinonaktifkan"?></span></td>
                   <td>
                     <a href="<?="$baseUrl/user/form?idUser=$value->idUser"?>" class="fa fa-edit text-warning"></a>
                     <button data-id="<?=$value->idUser?>" href="#" class="btn-transparent fa fa-times text-danger delete"></button>
