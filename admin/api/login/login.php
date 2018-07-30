@@ -5,7 +5,7 @@
 	if (isset($_POST['submit'])) {
 		$un = $_POST['un'];
 		$pw = md5($_POST['pw']);
-		$qcheck = $db->query("SELECT * from user where username = '$un' AND password = '$pw'");
+		$qcheck = $db->query("SELECT * from user where username = '$un' AND password = '$pw' and aktif=1");
 		if ($qcheck->num_rows) {
 			$data = $qcheck->fetch_object();
 			$_SESSION['id'] = $data->idUser; 

@@ -20,7 +20,7 @@
 		$query = $db->query("UPDATE user set nama = '$nama',alamat='$alamat',telp='$telp',
 		username='$username' $setpw where idUser = $id");
 	}else{
-		$query = $db->query("INSERT into user values('','$nama','$alamat','$telp','$username','$password','2','1')");
+		$query = $db->query("INSERT into user values('','$nama','$alamat','$telp','$username',MD5('$password'),'2','1')");
 	}
 	if(!$query)
 		die("error execute query");
