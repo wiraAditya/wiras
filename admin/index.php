@@ -1,4 +1,5 @@
 <?php 
+session_start();
 header("Content-type:Application-json");
 
   if (!strpos($_SERVER['REQUEST_URI'],"index.php")) {
@@ -14,8 +15,8 @@ header("Content-type:Application-json");
   }
   // view set
   $viewPath="./view/index/index.php";
-
-  $pathinfo =$_SERVER['PATH_INFO'];
+  // print_r($_SERVER); 
+  $pathinfo =isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:"";
   $pathUrl = explode("/",substr($pathinfo,1,strlen($pathinfo)));
   if (!empty($pathUrl)&&!empty($pathUrl[0])) {
     $viewPath = "./view";
@@ -38,5 +39,15 @@ header("Content-type:Application-json");
     include_once("./view/404.php");
     die();
   }
-  include_once("./view/mainContent.php");
+  if (isset($_SESSION['id'])) {
+    
+    include_once("./view/mainContent.php");
+    
+  }else{
+    include_once("./view/loginContent.php");
+
+  }
+  if (isset($_SESSION['flash'])) {
+    unset($_SESSION['flash']);
+  }
 ?>

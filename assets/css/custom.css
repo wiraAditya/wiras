@@ -1,3 +1,4 @@
+body{ overflow-x: hidden; }
 *{
 	
 	font-family: 'Lato';
@@ -63,6 +64,30 @@
 .textCapt>h1{
     font-weight: bold;
 }
+.card-box{
+	background-color: #fff;
+	border-radius: 5px;
+	margin-top: 30px;
+	    min-height: 586px;
+}
+.card-image{
+	height: 250px;
+	width: 100%;
+}
+
+.card-image>img{
+	border-radius: 5px 5px 0px 0px;
+	height: 250px
+}
+.card-content{
+	width: 85%;
+	margin: auto;
+	font-family: "Lato";
+	padding:15px;
+}
+.color-grey{color:#a7a7a4;}
+.color-black{color:#000; !important}
+.card-content>h3,.card-content>h4{font-family: "Roboto Slab";font-weight: bold}
 @media only screen and (max-width: 991px) {
     .img-content{
 		max-width: 250px !important;

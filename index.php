@@ -20,8 +20,8 @@
 		  		<div class="col-lg-8 content">
 				    <h1 class="title pb-3">Analisa </br>Kecocokan Tanah</h1>
 				    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus quis, excepturi asperiores! Deserunt voluptate aut dolor! Voluptatem ut, dolorum deleniti nulla, fugiat rem tenetur magni quam eligendi earum minima? Voluptatum.</p>
-				    <a class="btn button-front button-colored ">Analisa</a>
-				    <a class="btn button-front text-green">Blog</a>
+				    <a href="analisa.php" class="btn button-front button-colored ">Analisa</a>
+				    <a href="blog.php" class="btn button-front text-green">Blog</a>
 		  		</div>
 		  	</div>
 			
