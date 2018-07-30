@@ -1,4 +1,4 @@
-<?php include_once("api/coba/read.php") ?>
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
