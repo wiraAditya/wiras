@@ -119,15 +119,21 @@ if (isset($_SESSION['flash'])) {
 <?php if (isset($_SESSION['flash'])&&!empty($_SESSION['flash'])): ?>
 	
 <script>
-	
 
 swal({
-  title: 'Hasil Analisa ',
-  html:'<p>Cocok : <?php echo $_SESSION['flash']['cocok'] ?>%</p> <p>Tidak Cocok : <?php echo $_SESSION['flash']['tidak'] ?>%</p> <p><span class="btn <?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"btn-danger":"btn-success" ?>"><?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"Tidak Cocok":"Cocok" ?></span></p>',
   imageUrl: 'assets/img/icon.png',
   imageWidth: 100,
   imageHeight: 100,
-  imageAlt: 'Custom image'
+  imageAlt: 'Custom image',
+  html:'<p>Tanaman : <?php echo $_SESSION['flash']['tanaman'] ?><div class="row"><div class="col-6"><p>Jenis Tanah : <?php echo $_SESSION['flash']['jenis'] ?><p>Suhu : <?php echo $_SESSION['flash']['suhu'] ?></div><div class="col-6"><p>PH : <?php echo $_SESSION['flash']['ph'] ?><p>Kedalaman : <?php echo $_SESSION['flash']['kedalaman'] ?></p></div></div> <p><u><strong>Analisa</strong></u></p><p>Cocok : <?php echo $_SESSION['flash']['cocok'] ?>%</p> <p>Tidak Cocok : <?php echo $_SESSION['flash']['tidak'] ?>%</p> <p><span class="btn <?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"btn-danger":"btn-success" ?>"><?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"Tidak Cocok":"Cocok" ?></span></p>',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'simpan'
+}).then((result) => {
+  if (result.value) {
+    window.open('savepdf.php?cocok=<?php echo $_SESSION['flash']['cocok'] ?>&tidak=<?php echo $_SESSION['flash']['tidak'] ?>&tanaman=<?php echo $_SESSION['flash']['tanaman'] ?>&jenis=<?php echo $_SESSION['flash']['jenis'] ?>&suhu=<?php echo $_SESSION['flash']['suhu'] ?>&ph=<?php echo $_SESSION['flash']['ph'] ?>&kedalaman=<?php echo $_SESSION['flash']['kedalaman'] ?>','_blank');
+  }
 })
 </script>
 <?php unset($_SESSION['flash']); endif ?>

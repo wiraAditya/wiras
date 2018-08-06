@@ -9,6 +9,14 @@ session_start();
 		$ph = $_POST['ph'];
 		$kedalaman = $_POST['kedalaman'];
 
+		$tanamantxt = $db->query("SELECT tanaman from jenis_tanaman where idTanaman='$tanaman'")->fetch_object()->tanaman;
+		$jenistxt = $db->query("SELECT jenis from jenis_tanah where idJenis='$jenis'")->fetch_object()->jenis;
+		$suhutxt = $db->query("SELECT suhu from suhu where idSuhu='$suhu'")->fetch_object()->suhu;
+		$phtxt = $db->query("SELECT ph from ph where idPh='$ph'")->fetch_object()->ph;
+		$kedalamantxt = $db->query("SELECT kedalaman from kedalaman where idKedalaman='$kedalaman'")->fetch_object()->kedalaman;
+
+
+
 
 		/*------------------------------------------
 					total
@@ -94,7 +102,11 @@ session_start();
 		echo "</br>";
 		$cocok = round($persenjeniscocok*$persenphcocok*$persensuhucocok*$persendalamcocok*($persencocok/100)*100,2);
 		$tidakcocok = round($persenjenistcocok*$persenphtcocok*$persensuhutcocok*$persendalamtcocok*($persentidakcocok/100)*100,2);
-		$_SESSION['flash'] = array("cocok"=>$cocok,"tidak"=>$tidakcocok,"data"=>$_POST);
+		$_SESSION['flash'] = array("cocok"=>$cocok,"tidak"=>$tidakcocok,"data"=>$_POST,"tanaman"=>$tanamantxt,
+"jenis"=>$jenistxt,
+"suhu"=>$suhutxt,
+"ph"=>$phtxt,
+"kedalaman"=>$kedalamantxt);
 		header("location:analisa.php");
 
 	}else{
