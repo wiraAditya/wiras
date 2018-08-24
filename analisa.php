@@ -125,7 +125,7 @@ swal({
   imageWidth: 100,
   imageHeight: 100,
   imageAlt: 'Custom image',
-  html:'<p>Tanaman : <?php echo $_SESSION['flash']['tanaman'] ?><div class="row"><div class="col-6"><p>Jenis Tanah : <?php echo $_SESSION['flash']['jenis'] ?><p>Suhu : <?php echo $_SESSION['flash']['suhu'] ?></div><div class="col-6"><p>PH : <?php echo $_SESSION['flash']['ph'] ?><p>Kedalaman : <?php echo $_SESSION['flash']['kedalaman'] ?></p></div></div> <p><u><strong>Analisa</strong></u></p><p>Cocok : <?php echo $_SESSION['flash']['cocok'] ?>%</p> <p>Tidak Cocok : <?php echo $_SESSION['flash']['tidak'] ?>%</p> <p><span class="btn <?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"btn-danger":"btn-success" ?>"><?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"Tidak Cocok":"Cocok" ?></span></p>',
+  html:'<p>Tanaman : <?php echo $_SESSION['flash']['tanaman'] ?><div class="row"><div class="col-6"><p>Jenis Tanah : <?php echo $_SESSION['flash']['jenis'] ?><p>Suhu : <?php echo $_SESSION['flash']['suhu'] ?></div><div class="col-6"><p>PH : <?php echo $_SESSION['flash']['ph'] ?><p>Kedalaman : <?php echo $_SESSION['flash']['kedalaman'] ?></p></div></div> <p><u><strong>Analisa</strong></u></p><p>Cocok : <?php echo $_SESSION['flash']['cocok'] ?></p> <p>Tidak Cocok : <?php echo $_SESSION['flash']['tidak'] ?></p> <p><span class="btn <?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"btn-danger":"btn-success" ?>"><?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"Tidak Cocok":"Cocok" ?></span></p>',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',

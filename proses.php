@@ -21,6 +21,8 @@ session_start();
 		/*------------------------------------------
 					total
 		----------------------------------------------*/
+		$qtotalsemua =  $db->query("SELECT count(idAnalisa) as total from analisa where idTanaman = $tanaman");
+		$totalsemua = $qtotalsemua->fetch_object()->total;
 		// cocok
 		$qtotalcocok =  $db->query("SELECT count(idAnalisa) as total from analisa where idTanaman = $tanaman and kelas='Cocok'");
 		$totalcocok = $qtotalcocok->fetch_object()->total;
@@ -67,8 +69,7 @@ session_start();
 		$qphtcocok=$db->query("SELECT count(idAnalisa) as total from analisa where idPh = $ph and idTanaman = $tanaman and kelas='Tidak Cocok'");
 		
 		$totalphtcocok = $qphtcocok->fetch_object()->total;
-		print_r("total".$totalphtcocok);
-		print_r("totalall".$totaltidakcocok);
+		
 		$persenphtcocok = round($totalphtcocok/$totaltidakcocok,2);
 
 		/*------------------------------------------
@@ -98,10 +99,21 @@ session_start();
 		
 		$tdalamtcocok = $qdalamtcocok->fetch_object()->total;
 		$persendalamtcocok = round($tdalamtcocok/$totaltidakcocok,2);
+		
+		if ($persenjeniscocok==0||$persenphcocok==0||$persensuhucocok==0||$persendalamcocok==0) {
+			
+			$cocok = number_format((($tjeniscocok+1)/($totalcocok+5))*(($tphcocok+1)/($totalcocok+5))*(($tsuhucocok+1)/($totalcocok+5))*(($tdalamcocok+1)/($totalcocok+5))*(($totalcocok+1)/($totalsemua+5)),10,'.','');
+		}else{
+			$cocok = number_format($persenjeniscocok*$persenphcocok*$persensuhucocok*$persendalamcocok*($persencocok/100),4,'.','');
+			
+		}
+		if ($persenjenistcocok==0||$persenphtcocok==0||$persensuhutcocok==0||$persendalamtcocok==0) {
+			$cocok = number_format((($totaljenistcocok+1)/($totaltidakcocok+5))*(($totalphtcocok+1)/($totaltidakcocok+5))*(($tsuhutcocok+1)/($totaltidakcocok+5))*(($tdalamtcocok+1)/($totaltidakcocok+5))*(($totaltidakcocok+1)/($totalsemua+5)),10,'.','');
 
-		echo "</br>";
-		$cocok = round($persenjeniscocok*$persenphcocok*$persensuhucocok*$persendalamcocok*($persencocok/100)*100,2);
-		$tidakcocok = round($persenjenistcocok*$persenphtcocok*$persensuhutcocok*$persendalamtcocok*($persentidakcocok/100)*100,2);
+		}else{
+			$tidakcocok = number_format($persenjenistcocok*$persenphtcocok*$persensuhutcocok*$persendalamtcocok*($persentidakcocok/100),4,'.','');
+
+		}
 		$_SESSION['flash'] = array("cocok"=>$cocok,"tidak"=>$tidakcocok,"data"=>$_POST,"tanaman"=>$tanamantxt,
 "jenis"=>$jenistxt,
 "suhu"=>$suhutxt,
