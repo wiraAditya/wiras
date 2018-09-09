@@ -60,12 +60,7 @@ if (isset($_SESSION['flash'])) {
 					  <h3 class="pb-5">Analisa Kecocokan Tanah</h3>
 					  <div class="form-group">
 					    <label for="exampleInputEmail1">Jenis Tanaman</label>
-					    <select required="" name="tanaman" id="" class="form-control">
-					    	<option value=""></option>
-					    	<?php foreach ($cbtanaman as $key => $value): ?>
-					    		<option <?php echo isset($tanaman)&&!empty($tanaman)&&$tanaman==$value->idTanaman ? "selected":"" ?> value="<?php echo $value->idTanaman ?>"><?php echo $value->tanaman ?></option>
-					    	<?php endforeach ?>
-					    </select>
+					    <input type="text" value="<?php echo isset($tanaman)?$tanaman:"" ?>" name="tanaman" class="form-control">
 					  </div>
 					  <div class="row">
 						  	
@@ -117,23 +112,30 @@ if (isset($_SESSION['flash'])) {
 </body>
 </html>
 <?php if (isset($_SESSION['flash'])&&!empty($_SESSION['flash'])): ?>
-	
 <script>
+	<?php if (isset($_SESSION['flash']['success'])&&!$_SESSION['flash']['success']): ?>
+		swal(
+			  '',
+			  '<?php echo $_SESSION['flash']['msg'] ?>',
+			  'warning'
+			)
+	<?php else: ?>
 
-swal({
-  imageUrl: 'assets/img/icon.png',
-  imageWidth: 100,
-  imageHeight: 100,
-  imageAlt: 'Custom image',
-  html:'<p>Tanaman : <?php echo $_SESSION['flash']['tanaman'] ?><div class="row"><div class="col-6"><p>Jenis Tanah : <?php echo $_SESSION['flash']['jenis'] ?><p>Suhu : <?php echo $_SESSION['flash']['suhu'] ?></div><div class="col-6"><p>PH : <?php echo $_SESSION['flash']['ph'] ?><p>Kedalaman : <?php echo $_SESSION['flash']['kedalaman'] ?></p></div></div> <p><u><strong>Analisa</strong></u></p><p>Cocok : <?php echo $_SESSION['flash']['cocok'] ?></p> <p>Tidak Cocok : <?php echo $_SESSION['flash']['tidak'] ?></p> <p><span class="btn <?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"btn-danger":"btn-success" ?>"><?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"Tidak Cocok":"Cocok" ?></span></p>',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'simpan'
-}).then((result) => {
-  if (result.value) {
-    window.open('savepdf.php?cocok=<?php echo $_SESSION['flash']['cocok'] ?>&tidak=<?php echo $_SESSION['flash']['tidak'] ?>&tanaman=<?php echo $_SESSION['flash']['tanaman'] ?>&jenis=<?php echo $_SESSION['flash']['jenis'] ?>&suhu=<?php echo $_SESSION['flash']['suhu'] ?>&ph=<?php echo $_SESSION['flash']['ph'] ?>&kedalaman=<?php echo $_SESSION['flash']['kedalaman'] ?>','_blank');
-  }
-})
+		swal({
+		  imageUrl: 'assets/img/icon.png',
+		  imageWidth: 100,
+		  imageHeight: 100,
+		  imageAlt: 'Custom image',
+		  html:'<p>Tanaman : <?php echo $_SESSION['flash']['tanaman'] ?><div class="row"><div class="col-6"><p>Jenis Tanah : <?php echo $_SESSION['flash']['jenis'] ?><p>Suhu : <?php echo $_SESSION['flash']['suhu'] ?></div><div class="col-6"><p>PH : <?php echo $_SESSION['flash']['ph'] ?><p>Kedalaman : <?php echo $_SESSION['flash']['kedalaman'] ?></p></div></div> <p><u><strong>Analisa</strong></u></p><p>Cocok : <?php echo $_SESSION['flash']['cocok'] ?></p> <p>Tidak Cocok : <?php echo $_SESSION['flash']['tidak'] ?></p> <p><span class="btn <?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"btn-danger":"btn-success" ?>"><?php echo $_SESSION['flash']['tidak']>$_SESSION['flash']['cocok']?"Tidak Cocok":"Cocok" ?></span></p>',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: 'simpan'
+		}).then((result) => {
+		  if (result.value) {
+		    window.open('savepdf.php?cocok=<?php echo $_SESSION['flash']['cocok'] ?>&tidak=<?php echo $_SESSION['flash']['tidak'] ?>&tanaman=<?php echo $_SESSION['flash']['tanaman'] ?>&jenis=<?php echo $_SESSION['flash']['jenis'] ?>&suhu=<?php echo $_SESSION['flash']['suhu'] ?>&ph=<?php echo $_SESSION['flash']['ph'] ?>&kedalaman=<?php echo $_SESSION['flash']['kedalaman'] ?>','_blank');
+		  }
+		})
+	<?php endif ?>
 </script>
 <?php unset($_SESSION['flash']); endif ?>
